@@ -188,7 +188,6 @@
         if (DIV) { corre('mat', c.mat); corre('mo', c.mo); }
         qa('.sim__m2valor').forEach(el => { el.textContent = brl(c.P.m2); });
         qa('.sim__prazo').forEach(el => { el.textContent = c.P.prazo; });
-        qa('.sim__perfil').forEach(el => { el.textContent = c.P.perfil; });
         if (lista) lista.innerHTML = c.P.inclui.map(i => `<li><b>${i[0]}</b>${i[1]}</li>`).join('');
         segs.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.plano === st.plano)));
         tabs.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.amb === st.amb)));

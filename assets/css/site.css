@@ -225,6 +225,7 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
 /* ---------- como funciona: linha que preenche ---------- */
 .como{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,6vw,6rem);align-items:start}
 .como__txt{position:sticky;top:6rem}
+.como__cta{grid-column:1/-1;margin-top:0}
 .como__txt h2{font-size:var(--t-h2)}
 .como__txt>p{margin-top:1.2rem;color:var(--muted);max-width:26rem}
 .como__txt .ctas{margin-top:1.8rem}
@@ -454,9 +455,6 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
 .sim__base--prazo{margin-top:.25rem}
 .sim__base--prazo b{font-weight:500;color:var(--on-dark)}
 .sim__h--topo{margin-top:0;padding-top:0;border-top:0}
-.sim__perfil-txt{margin-top:.5rem;color:var(--on-dark)}
-.sim__perfil-txt .sim__perfil{display:block}
-.sim__perfil-txt .sim__perfil::first-letter{text-transform:uppercase}
 .sim__ctl{gap:1.2rem;top:5rem}
 .sim__foto{min-width:0}
 .foto-lado{margin:2rem 0 0;border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
@@ -545,7 +543,6 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
 @media (max-width:380px){.hero .cmpr__labels span::before,.hero .cmpr__labels span::after{display:none!important}}
 
 /* Simulador: no computador título, controles, valor e foto cabem em uma tela; o que está incluído vem logo abaixo, centralizado */
-.sim__perfil-txt{max-width:44rem;margin:.6rem auto 0;font-size:clamp(1.02rem,1.3vw,1.2rem)}
 .sim__card{margin-top:1.2rem}
 .sim__card .sim__aviso{margin-top:1.3rem}
 @media (min-width:861px){

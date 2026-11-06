@@ -4,7 +4,7 @@
     python3 tools/testar.py [url]
 
 Confere: os três planos em 20, 60 e 300 m² (total = metragem x valor por m²); valor digitado fora da faixa;
-troca de plano e de ambiente; prazo, perfil e lista do incluído; mensagem de WhatsApp; arraste com mouse e
+troca de plano e de ambiente; prazo e lista do incluído; mensagem de WhatsApp; arraste com mouse e
 com toque (e que o toque vertical ainda rola a página); teclado no puxador; no celular, o total aparece na
 mesma tela do simulador.
 """
@@ -30,7 +30,7 @@ async def estado(pg):
     return await pg.evaluate('''() => ({
       m2: document.querySelector('#sim-m2').value, range: document.querySelector('.ctl__range').value,
       total: document.querySelector('[data-k=total]').textContent, base: document.querySelector('.sim__base').textContent,
-      prazo: document.querySelector('.sim__prazo').textContent, perfil: document.querySelector('.sim__perfil').textContent,
+      prazo: document.querySelector('.sim__prazo').textContent,
       plano: document.querySelector('.seg__b[aria-pressed=true]').dataset.plano,
       amb: document.querySelector('.tabs__b[aria-pressed=true]').dataset.amb,
       foto: (document.querySelector('.sim__palco img.on') || {dataset:{}}).dataset.b || '',
@@ -49,7 +49,7 @@ async def confere(pg, D, m2, plano, rotulo):
     ok(int(s['m2']) == m2 and int(s['range']) == m2, f'{rotulo}: campo e barra em {m2} m² (campo={s["m2"]}, barra={s["range"]})')
     ok(num(s['total']) == [total], f'{rotulo}: total {s["total"]} = {m2} x {P["m2"]} ({total})')
     ok(num(s['base'])[:1] == [P['m2']] and 'Material e mão de obra incluídos' in s['base'], f'{rotulo}: "{s["base"].strip()}"')
-    ok(s['prazo'] == P['prazo'] and s['perfil'] == P['perfil'], f'{rotulo}: prazo {s["prazo"]} e perfil do plano')
+    ok(s['prazo'] == P['prazo'], f'{rotulo}: prazo {s["prazo"]} do plano')
     ok(s['plano'] == plano and P['nome'] in s['para'] and P['nome'] in s['legenda'], f'{rotulo}: {P["nome"]} no botão, no resumo e na legenda')
     ok([re.sub(r'^(\S.*?)(?=[A-ZÀ-Ú])', '', x, 1) for x in s['inclui']] and len(s['inclui']) == len(P['inclui'])
        and all(k in x and v in x for x, (k, v) in zip(s['inclui'], P['inclui'])), f'{rotulo}: {len(s["inclui"])} itens incluídos, texto igual ao do plano')

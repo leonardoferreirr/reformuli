@@ -242,7 +242,7 @@ def sim_dados():
         fotos[amb] = por_plano
     dados = {
         "planos": [{"id": p["id"], "nome": p["nome"], "curto": p["curto"], "m2": p["m2"], "prazo": p["prazo"],
-                    "perfil": p["perfil"], "inclui": [[k, v] for k, v in p["inclui"]]} for p in PLANOS],
+                    "inclui": [[k, v] for k, v in p["inclui"]]} for p in PLANOS],
         "divisao": DIVISAO, "metragem": METRAGEM, "inicial": PLANO_INICIAL,
         "ambientes": [[a, n] for a, n in AMBIENTES if a in fotos], "fotos": fotos,
         "confirmado": PRECOS_CONFIRMADOS, "estimativa": FRASE_ESTIMATIVA, "exemplo": FRASE_EXEMPLO, "incluso": FRASE_INCLUSO,
@@ -271,7 +271,7 @@ def sim_inicial():
                  f'<div><dt>Mão de obra <small>({DIVISAO["mao_de_obra"]}%)</small></dt><dd class="num" data-k="mo">{brl(div[1])}</dd></div></dl>')
     return {
         "SIM_M2": str(m2), "SIM_PLANO_NOME": p["nome"], "SIM_TOTAL": brl(total), "SIM_M2_VALOR": brl(p["m2"]),
-        "SIM_PRAZO": p["prazo"], "SIM_PERFIL": p["perfil"], "SIM_INCLUI": inclui_html(p), "SIM_FOTO": foto,
+        "SIM_PRAZO": p["prazo"], "SIM_INCLUI": inclui_html(p), "SIM_FOTO": foto,
         "SIM_SPLIT": split, "SIM_AMB_NOME": dict(AMBIENTES).get(amb0, "Ambiente"),
         "SIM_EXEMPLO": "" if PRECOS_CONFIRMADOS else f' <span class="sim__exemplo">{FRASE_EXEMPLO}</span>',
         "FRASE_INCLUSO": FRASE_INCLUSO,
