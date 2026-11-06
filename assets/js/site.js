@@ -48,6 +48,14 @@
   setTimeout(() => rvs.forEach(el => { if (el.getBoundingClientRect().top < innerHeight) mostrar(el); }), 2500);
   setTimeout(() => rvs.forEach(mostrar), 6000);
 
+  /* ---------- bolinha do WhatsApp: entra depois do topo, para não cobrir o texto dele ---------- */
+  const zap = d.querySelector('.zap');
+  if (zap) {
+    const verZap = () => zap.classList.toggle('ver', w.scrollY > innerHeight * 0.45 || !d.querySelector('.hero'));
+    w.addEventListener('scroll', verZap, { passive: true });
+    verZap();
+  }
+
   /* ---------- antes e depois: a mesma sala, como a construtora entrega e como fica ---------- */
   const cmp = d.querySelector('.cmpr');
   if (cmp) {

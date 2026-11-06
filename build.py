@@ -188,6 +188,10 @@ def img(base, alt=None, sizes="(max-width:860px) 92vw, 46vw", lazy=True, cls="")
     return f'<img{c} {attrs} alt="{alt}" width="{w}" height="{h}"{lz} decoding="async">'
 
 
+# o topo cobre a tela inteira: no celular a foto vale pela altura, não pela largura
+TAM_HERO = "(max-width:860px) 1500px, 100vw"
+
+
 def preload(base, sizes):
     if not existe(base):
         return ""
@@ -533,8 +537,8 @@ PAGINAS = {
 def main():
     css = minificar(CSS.read_text())
     head_t, top_t, foot_t = (SRC / "head.html").read_text(), (SRC / "top.html").read_text(), (SRC / "foot.html").read_text()
-    pre_home = "\n".join(x for x in [preload("rf-sala-3", "(max-width:860px) 92vw, 1320px"),
-                                     preload("rf-sala-0b", "(max-width:860px) 92vw, 1320px")] if x)
+    pre_home = "\n".join(x for x in [preload("rf-sala-3", TAM_HERO),
+                                     preload("rf-sala-0b", TAM_HERO)] if x)
     PAGINAS["index"]["preload"] = pre_home
     PAGINAS["franquia"]["preload"] = preload(primeira("rf-fachada") or "", "(max-width:860px) 92vw, 1320px") if primeira("rf-fachada") else ""
     PAGINAS["obrigado"]["preload"] = ""
@@ -546,8 +550,8 @@ def main():
         "FRANQUIA_RECEBE": lista(FRANQUIA_RECEBE, "recebe__lista"), "FRANQUIA_PERFIL": FRANQUIA_PERFIL,
         "SIM_PLANOS": sim_planos(), "SIM_AMBIENTES": sim_ambientes(), "REGRAS_PAPELADA": regras_papelada(),
         "FRASE_ESTIMATIVA": FRASE_ESTIMATIVA,
-        "IMG_ANTES": img("rf-sala-0b", sizes="(max-width:860px) 92vw, 1320px", lazy=False, cls="cmpr__img"),
-        "IMG_DEPOIS": img("rf-sala-3", sizes="(max-width:860px) 92vw, 1320px", lazy=False, cls="cmpr__img"),
+        "IMG_ANTES": img("rf-sala-0b", sizes=TAM_HERO, lazy=False, cls="cmpr__img"),
+        "IMG_DEPOIS": img("rf-sala-3", sizes=TAM_HERO, lazy=False, cls="cmpr__img"),
         "IMG_UNIDADES": img(primeira("rf-showroom", "rf-chaves", "rf-equipe") or "", sizes="(max-width:860px) 92vw, 46vw"),
         "IMG_FRANQUIA": img(primeira("rf-fachada") or "", sizes="100vw"),
         "IMG_COMO": img(primeira("rf-capacete") or "", sizes="(max-width:860px) 92vw, 34vw"),

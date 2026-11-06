@@ -9,29 +9,27 @@
 
   <!-- topo: a mesma sala, como a construtora entrega e como fica pronta -->
   <section class="hero" id="inicio">
+    <div class="cmpr" style="--p:50%">
+      <div class="cmpr__depois">{{IMG_DEPOIS}}</div>
+      <div class="cmpr__antes">{{IMG_ANTES}}</div>
+      <div class="cmpr__veu" aria-hidden="true"></div>
+      <div class="cmpr__linha" aria-hidden="true"></div>
+      <button class="cmpr__handle" type="button" role="slider" aria-label="Comparar a sala antes e depois da reforma" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="metade antes, metade depois">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
     <div class="wrap hero__head">
       <h1>Pegou as chaves. <em>Agora é com a gente.</em></h1>
-      <div class="hero__side">
-        <p>Reforma de apartamento novo em três planos, com valor por metro quadrado e material e mão de obra incluídos. Simule em segundos, sem deixar telefone.</p>
+      <p class="hero__p">Reforma de apartamento novo em três planos, com valor por metro quadrado e material e mão de obra incluídos. Simule em segundos, sem deixar telefone.</p>
+      <div class="hero__base">
         <div class="ctas">
-          <a class="btn btn--pri" href="#simulador">Simular minha reforma {{ARROW}}</a>
+          <a class="btn btn--gold" href="#simulador">Simular minha reforma {{ARROW}}</a>
           <a class="btn btn--line" href="#solucoes">Ver os planos</a>
         </div>
-      </div>
-    </div>
-    <div class="wrap">
-      <div class="cmpr" style="--p:50%">
-        <div class="cmpr__depois">{{IMG_DEPOIS}}</div>
-        <div class="cmpr__antes">{{IMG_ANTES}}</div>
-        <div class="cmpr__linha" aria-hidden="true"></div>
-        <button class="cmpr__handle" type="button" role="slider" aria-label="Comparar a sala antes e depois da reforma" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="metade antes, metade depois">
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-      </div>
-      <div class="cmpr__labels" aria-hidden="true">
-        <span>Como a construtora entrega</span>
-        <span class="cmpr__dica">Arraste para comparar</span>
-        <span>Como a Reformuli entrega</span>
+        <div class="cmpr__labels" aria-hidden="true">
+          <span>Como a construtora entrega</span>
+          <span>Como a Reformuli entrega</span>
+        </div>
       </div>
     </div>
   </section>
@@ -39,9 +37,8 @@
   <!-- simulador: a peça principal -->
   <section class="sec" id="simulador">
     <div class="wrap">
-      <div class="sec__head">
+      <div class="sec__head sec__head--centro">
         <h2 class="rv">Simule a reforma <em>do seu apartamento.</em></h2>
-        <p class="rv" data-d="1">Coloque a metragem, escolha o plano e veja na hora o valor estimado, com material e mão de obra incluídos.</p>
       </div>
       <div class="sim">
         <div class="sim__ctl rv">
@@ -91,9 +88,8 @@
   <!-- soluções: os três planos empilhando no scroll -->
   <section class="sec sec--tight" id="solucoes">
     <div class="wrap">
-      <div class="sec__head">
-        <h2 class="rv">Três planos, <em>um valor por metro.</em></h2>
-        <p class="rv" data-d="1">Todos partem do apartamento como a construtora entrega. O que muda é o acabamento, e a lista de cada plano diz o que entra.</p>
+      <div class="sec__head sec__head--centro">
+        <h2 class="rv">Três planos, <em>um valor por metro quadrado.</em></h2>
       </div>
       <div class="pads">
         {{PLANOS_CARDS}}
@@ -104,7 +100,7 @@
   <!-- regras: condomínio, ART ou RRT, garantia -->
   <section class="sec dark" id="regras">
     <div class="wrap">
-      <div class="sec__head sec__head--left">
+      <div class="sec__head sec__head--centro">
         <h2 class="rv">Reforma em apartamento <em>tem regra.</em></h2>
         <p class="rv" data-d="1">Antes de qualquer furo, o condomínio e a construtora têm o que dizer. É melhor saber agora do que descobrir com a obra parada.</p>
       </div>
@@ -148,9 +144,8 @@
   <!-- obras -->
   <section class="sec sec--tight" id="obras">
     <div class="wrap">
-      <div class="sec__head">
+      <div class="sec__head sec__head--centro">
         <h2 class="rv">Como fica <em>pronto.</em></h2>
-        <p class="rv" data-d="1">Sala, cozinha e banheiro nos três planos. Imagens ilustrativas.</p>
       </div>
       <div class="obras">
         {{OBRAS}}
