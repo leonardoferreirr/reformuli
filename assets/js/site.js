@@ -121,7 +121,8 @@
     let D = null;
     try { D = JSON.parse(dadosEl.textContent); } catch (_) {}
     if (D) {
-      const q = s => sim.querySelector(s), qa = s => [...sim.querySelectorAll(s)];
+      const raiz = d.getElementById('simulador') || sim;   /* o que está incluído fica fora do .sim, no bloco de baixo */
+      const q = s => raiz.querySelector(s), qa = s => [...raiz.querySelectorAll(s)];
       const numero = q('#sim-m2'), faixa = q('.ctl__range'), palco = q('.sim__palco');
       const segs = qa('.seg__b'), tabs = qa('.tabs__b');
       const nums = {}; qa('.num').forEach(el => { nums[el.dataset.k] = el; });

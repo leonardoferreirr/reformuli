@@ -543,3 +543,39 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
   .hero .cmpr__labels span{white-space:nowrap}
 }
 @media (max-width:380px){.hero .cmpr__labels span::before,.hero .cmpr__labels span::after{display:none!important}}
+
+/* Simulador: no computador título, controles, valor e foto cabem em uma tela; o que está incluído vem logo abaixo, centralizado */
+.sim__perfil-txt{max-width:44rem;margin:.6rem auto 0;font-size:clamp(1.02rem,1.3vw,1.2rem)}
+.sim__card{margin-top:1.2rem}
+.sim__card .sim__aviso{margin-top:1.3rem}
+@media (min-width:861px){
+  #simulador{padding-block:0 clamp(3rem,7vh,5rem);scroll-margin-top:0}
+  .sim__tela{display:flex;flex-direction:column;justify-content:center;min-height:100vh;min-height:100svh;padding-block:calc(4.5rem + clamp(.5rem,1.8vh,1.3rem)) clamp(.7rem,2vh,1.4rem)}
+  #simulador .sec__head{margin-bottom:clamp(.7rem,2.2vh,1.5rem)}
+  #simulador .sec__head h2{font-size:clamp(1.8rem,3vw,2.9rem)}
+  .sim{align-items:stretch}
+  .sim__ctl{position:static;gap:clamp(.6rem,1.5vh,1rem);align-content:space-between}
+  .ctl label,.ctl__label{margin-bottom:.35rem;font-size:.74rem}
+  .ctl__m2 input{font-size:clamp(1.9rem,2.8vw,2.6rem)}
+  .ctl__range{margin-top:.6rem}
+  .ctl__dica{margin-top:.35rem}
+  .sim__resumo{padding:.9rem 1.2rem 1rem}
+  .sim__para{font-size:.82rem}
+  .sim__total{margin-top:.15rem;font-size:clamp(1.7rem,2.5vw,2.3rem)}
+  .sim__base{margin-top:.15rem;font-size:.82rem}
+  .sim__resumo .ctas{margin-top:.7rem}
+  .sim__out{display:flex;flex-direction:column;min-width:0}
+  .sim__foto{display:flex;flex-direction:column;flex:1;min-height:0}
+  .sim__foto .tabs{margin-bottom:.5rem}
+  .sim__palco{flex:1;min-height:14rem;aspect-ratio:auto}
+  .sim__legenda{margin-top:.4rem;font-size:.76rem}
+  .sim__card{margin-top:clamp(1.4rem,3.5vh,2.4rem);padding:clamp(2rem,3.4vw,3rem);text-align:center}
+  .sim__h{border-top:0;padding-top:0;margin-top:clamp(1.6rem,3vh,2.2rem)}
+  .sim__h--topo{margin-top:0}
+  .sim__inclui{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.5rem 2.2rem;columns:auto;max-width:62rem;margin:1.1rem auto 0;text-align:left}
+}
+@media (min-width:861px){
+  .sim__palco{min-height:clamp(14rem,51vh,30rem)}
+  .sim__ctl{gap:clamp(.6rem,1.9vh,1.3rem)}
+  #simulador .sec__head h2{font-size:clamp(1.9rem,3.2vw,3.1rem)}
+}
