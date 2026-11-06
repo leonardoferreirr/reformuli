@@ -1,0 +1,103 @@
+# Reformuli Reformas
+
+> Reforma de apartamento entregue pela construtora, em três planos (Reformuli Essencial, Confort e Premium), com simulador de valor por metro quadrado no site. Material e mão de obra incluídos. Também é uma franquia: loja ou escritório (R$ 80.000) ou home office (R$ 8.000). Uma empresa do Massuo Group.
+
+## Em poucas palavras
+
+- Empresa: Reformuli Reformas, do Massuo Group (com a City Steel, que constrói, e a Multihall, que fornece material).
+- O que faz: reforma de apartamento novo em três planos, com piso, paredes, banheiro, cozinha, gesso, iluminação, rodapé e mão de obra.
+- Valor por metro quadrado: Reformuli Essencial R$ 832; Reformuli Confort R$ 1.332; Reformuli Premium R$ 2.165. O total é a metragem vezes o valor do plano. Material e mão de obra incluídos. Valor estimado pela metragem. O orçamento fechado sai depois da visita técnica.
+- Prazo estimado: Essencial 30 a 40 dias; Confort 40 a 50 dias; Premium 50 a 65 dias.
+- As fotos do site são ilustrativas.
+- Unidades: a rede está começando; o site pergunta a cidade do cliente pelo WhatsApp.
+- Franquia: loja ou escritório, investimento de R$ 80.000; home office, investimento de R$ 8.000.
+- Contato: WhatsApp +55 24 99859-3556.
+
+## Os três planos
+
+### Reformuli Essencial (R$ 832 por m², prazo estimado 30 a 40 dias)
+
+Para clientes que desejam deixar o apartamento pronto para morar ou alugar, com acabamento simples e funcional.
+
+- Piso: Cerâmica ou porcelanato econômico
+- Paredes: Pintura acrílica branca
+- Banheiro: Revestimento cerâmico básico
+- Cozinha: Revestimento nas áreas molhadas
+- Gesso: Acabamento simples, sem decoração
+- Iluminação: Plafons LED básicos
+- Rodapé: PVC ou cerâmico
+- Mão de obra: Equipe completa de instalação
+- Box: Vidro temperado padrão
+- Louças e metais: Linha básica
+- Marcenaria: Armários básicos de cozinha
+
+### Reformuli Confort (R$ 1.332 por m², prazo estimado 40 a 50 dias)
+
+Para famílias que procuram um apartamento moderno, confortável e com melhor acabamento.
+
+- Piso: Porcelanato ou vinílico de qualidade
+- Paredes: Pintura premium e parede decorativa
+- Banheiro: Porcelanato e nicho
+- Cozinha: Revestimento moderno
+- Gesso: Forro parcial com cortineiro
+- Iluminação: Spots e LED
+- Rodapé: Poliestireno
+- Portas: Pintura e acabamento
+- Mão de obra: Equipe especializada
+- Box: Vidro com perfil slim
+- Louças e metais: Linha intermediária
+- Marcenaria: Cozinha sob medida
+
+### Reformuli Premium (R$ 2.165 por m², prazo estimado 50 a 65 dias)
+
+Para clientes que desejam uma estética sofisticada e valorização do imóvel.
+
+- Piso: Porcelanato premium de grandes formatos
+- Paredes: Pintura premium e revestimentos decorativos
+- Banheiro: Porcelanato, nichos e metais sofisticados
+- Cozinha: Revestimentos especiais
+- Gesso: Forro completo com iluminação indireta
+- Iluminação: Projeto de LED e spots
+- Rodapé: Poliestireno premium
+- Acabamentos: Detalhes decorativos e paredes especiais
+- Mão de obra: Equipe especializada de alto padrão
+- Box: Vidro sob medida sem perfil
+- Louças e metais: Linha premium
+- Marcenaria: Projeto completo sob medida
+
+## Reforma em apartamento tem regra
+
+- NBR 16280: antes da obra, o síndico recebe o plano de reforma e a ART (engenheiro) ou RRT (arquiteto) do responsável técnico. Pintura não exige.
+- NBR 17170: o que é reformado, ou feito fora da NBR 16280, perde a cobertura da garantia da construtora.
+
+## Como funciona
+
+1. **Simulação.** Você coloca a metragem, escolhe o plano e já vê o valor estimado, aqui no site, sem deixar telefone.
+2. **Visita técnica.** A equipe vai ao apartamento, confere o que a construtora entregou e fecha o orçamento por escrito.
+3. **Obra.** Material e mão de obra num contrato só, com cronograma combinado antes de começar.
+4. **Entrega.** Vistoria final com você e o apartamento pronto para a mudança.
+
+## Franquia Reformuli
+
+- **Loja ou escritório, investimento de R$ 80.000:** Para quem quer um ponto físico na região, com atendimento presencial e amostras à mão.
+- **Home office, investimento de R$ 8.000:** Para começar com estrutura leve, atendendo pelo WhatsApp e no apartamento do cliente.
+
+### Como virar franqueado
+
+1. **Conversa.** Você manda cidade e modelo de interesse e o time de expansão apresenta o negócio.
+2. **Circular de Oferta.** Você recebe a Circular de Oferta de Franquia, com regras e números, para avaliar com calma.
+3. **Contrato.** Assinatura do contrato e definição do ponto, ou do home office.
+4. **Implantação.** Treinamento, material e abertura da unidade com o suporte da Reformuli.
+
+## Páginas
+
+- [Início](https://reformuli.vercel.app/): simulador, padrões, regras do condomínio, obras, unidades, franquia e contato.
+- [Franquia](https://reformuli.vercel.app/franquia): modelos, investimento e etapas.
+
+## Contato
+
+- WhatsApp: +55 24 99859-3556 (https://wa.me/5524998593556)
+- Simular a reforma: https://reformuli.vercel.app/#simulador
+- Fale com a gente: https://reformuli.vercel.app/#contato
+- Ser franqueado: https://reformuli.vercel.app/franquia#form
+- Massuo Group: https://massuogroup.vercel.app

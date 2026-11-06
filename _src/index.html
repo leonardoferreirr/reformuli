@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+{{HEAD}}
+</head>
+<body>
+{{TOP}}
+<main>
+
+  <!-- topo: a mesma sala, como a construtora entrega e como fica pronta -->
+  <section class="hero" id="inicio">
+    <div class="wrap hero__head">
+      <h1>Pegou as chaves. <em>Agora é com a gente.</em></h1>
+      <div class="hero__side">
+        <p>Reforma de apartamento novo em três planos, com valor por metro quadrado e material e mão de obra incluídos. Simule em segundos, sem deixar telefone.</p>
+        <div class="ctas">
+          <a class="btn btn--pri" href="#simulador">Simular minha reforma {{ARROW}}</a>
+          <a class="btn btn--line" href="#solucoes">Ver os planos</a>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="cmpr" style="--p:50%">
+        <div class="cmpr__depois">{{IMG_DEPOIS}}</div>
+        <div class="cmpr__antes">{{IMG_ANTES}}</div>
+        <div class="cmpr__linha" aria-hidden="true"></div>
+        <button class="cmpr__handle" type="button" role="slider" aria-label="Comparar a sala antes e depois da reforma" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-valuetext="metade antes, metade depois">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="cmpr__labels" aria-hidden="true">
+        <span>Como a construtora entrega</span>
+        <span class="cmpr__dica">Arraste para comparar</span>
+        <span>Como a Reformuli entrega</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- simulador: a peça principal -->
+  <section class="sec" id="simulador">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 class="rv">Simule a reforma <em>do seu apartamento.</em></h2>
+        <p class="rv" data-d="1">Coloque a metragem, escolha o plano e veja na hora o valor estimado, com material e mão de obra incluídos.</p>
+      </div>
+      <div class="sim">
+        <div class="sim__ctl rv">
+          <div class="ctl">
+            <label for="sim-m2">Tamanho do apartamento</label>
+            <div class="ctl__m2">
+              <input id="sim-m2" type="number" inputmode="numeric" min="20" max="300" step="1" value="{{SIM_M2}}" aria-describedby="sim-m2-dica">
+              <span>m²</span>
+            </div>
+            <input class="ctl__range" type="range" min="20" max="300" step="1" value="{{SIM_M2}}" aria-label="Tamanho do apartamento em metros quadrados">
+            <p class="ctl__dica" id="sim-m2-dica">De 20 a 300 m² de área útil.</p>
+          </div>
+          <div class="ctl">
+            <p class="ctl__label" id="sim-plano-label">Plano</p>
+            <div class="seg" role="group" aria-labelledby="sim-plano-label">{{SIM_PLANOS}}</div>
+          </div>
+          <p class="ctl__aviso">{{FRASE_ESTIMATIVA}}{{SIM_EXEMPLO}}</p>
+        </div>
+        <div class="sim__out">
+          <div class="sim__foto rv" data-d="1">
+            <div class="tabs" role="group" aria-label="Ambiente da foto">{{SIM_AMBIENTES}}</div>
+            <div class="sim__palco">{{SIM_FOTO}}</div>
+            <p class="sim__legenda"><span class="sim__amb">{{SIM_AMB_NOME}}</span> no plano <span class="sim__pn">{{SIM_PLANO_NOME}}</span>.</p>
+          </div>
+          <div class="sim__card dark rv" data-d="2">
+            <p class="sim__para">Valor estimado para <b class="sim__m2v">{{SIM_M2}}</b> m² no plano <b class="sim__pn">{{SIM_PLANO_NOME}}</b></p>
+            <p class="sim__total"><span class="num" data-k="total">{{SIM_TOTAL}}</span></p>
+            <p class="sim__base"><span class="sim__m2valor">{{SIM_M2_VALOR}}</span> por m². {{FRASE_INCLUSO}}</p>
+            {{SIM_SPLIT}}
+            <dl class="sim__dados">
+              <div><dt>Prazo estimado</dt><dd class="sim__prazo">{{SIM_PRAZO}}</dd></div>
+              <div><dt>Para quem</dt><dd class="sim__perfil">{{SIM_PERFIL}}</dd></div>
+            </dl>
+            <p class="sim__h">O que está incluído</p>
+            <ul class="sim__inclui">{{SIM_INCLUI}}</ul>
+            <div class="ctas">
+              <a class="btn btn--gold sim__cta" href="/obrigado?c=simulador">Quero este orçamento {{ARROW}}</a>
+            </div>
+            <p class="sim__aviso">{{FRASE_ESTIMATIVA}}{{SIM_EXEMPLO}}</p>
+          </div>
+        </div>
+      </div>
+      {{SIM_DADOS}}
+    </div>
+  </section>
+
+  <!-- soluções: os três planos empilhando no scroll -->
+  <section class="sec sec--tight" id="solucoes">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 class="rv">Três planos, <em>um valor por metro.</em></h2>
+        <p class="rv" data-d="1">Todos partem do apartamento como a construtora entrega. O que muda é o acabamento, e a lista de cada plano diz o que entra.</p>
+      </div>
+      <div class="pads">
+        {{PLANOS_CARDS}}
+      </div>
+    </div>
+  </section>
+
+  <!-- regras: condomínio, ART ou RRT, garantia -->
+  <section class="sec dark" id="regras">
+    <div class="wrap">
+      <div class="sec__head sec__head--left">
+        <h2 class="rv">Reforma em apartamento <em>tem regra.</em></h2>
+        <p class="rv" data-d="1">Antes de qualquer furo, o condomínio e a construtora têm o que dizer. É melhor saber agora do que descobrir com a obra parada.</p>
+      </div>
+      <div class="regras">
+        <div class="regra rv" data-d="1">
+          <h3>O condomínio é avisado antes</h3>
+          <p>A norma de reformas, a NBR 16280, pede que o síndico receba, antes da obra, o plano de reforma: o que vai mudar, quem faz e em quanto tempo. Sem isso, o condomínio pode parar a obra e barrar a entrada de material e de equipe.</p>
+        </div>
+        <div class="regra rv" data-d="2">
+          <h3>ART ou RRT nas mãos do síndico</h3>
+          <p>Mexer em pontos de elétrica e hidráulica, abrir vãos, instalar ar-condicionado: tudo isso pede um responsável técnico, com ART de engenheiro ou RRT de arquiteto, entregue junto com o plano. Só pintura dispensa.</p>
+        </div>
+        <div class="regra rv" data-d="3">
+          <h3>A garantia da construtora tem limite</h3>
+          <p>Pela NBR 17170, o que é reformado, ou feito fora da NBR 16280, perde a cobertura da garantia da construtora. Por isso a reforma precisa seguir a norma e ficar documentada do começo ao fim.</p>
+        </div>
+      </div>
+      {{REGRAS_PAPELADA}}
+      <div class="ctas ctas--center rv">
+        <a class="btn btn--gold" href="/obrigado?c=regras&a=duvida">Tirar uma dúvida no WhatsApp {{ARROW}}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- como funciona: 4 passos com a linha que preenche -->
+  <section class="sec" id="como-funciona">
+    <div class="wrap como">
+      <div class="como__txt">
+        <h2 class="rv">Da simulação <em>à mudança.</em></h2>
+        <p class="rv" data-d="1">Quatro passos, um valor fechado. Você acompanha cada um.</p>
+        <div class="ctas rv" data-d="2"><a class="btn btn--pri" href="#simulador">Começar pela simulação {{ARROW}}</a></div>
+      </div>
+      <ol class="steps">
+        <span class="steps__fill" aria-hidden="true"></span>
+        {{PASSOS}}
+      </ol>
+    </div>
+  </section>
+
+  <!-- obras -->
+  <section class="sec sec--tight" id="obras">
+    <div class="wrap">
+      <div class="sec__head">
+        <h2 class="rv">Como fica <em>pronto.</em></h2>
+        <p class="rv" data-d="1">Sala, cozinha e banheiro nos três planos. Imagens ilustrativas até as fotos de obra chegarem.</p>
+      </div>
+      <div class="obras">
+        {{OBRAS}}
+      </div>
+      <div class="ctas ctas--center rv" style="margin-top:2.4rem">
+        <a class="btn btn--pri" href="#simulador">Quero o meu assim {{ARROW}}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- unidades -->
+  <section class="sec sec--band" id="unidades">
+    <div class="wrap uni">
+      <div class="uni__ph rv">{{IMG_UNIDADES}}</div>
+      <div class="uni__txt">
+        <h2 class="rv">Quer saber se já tem Reformuli <em>na sua cidade?</em></h2>
+        <p class="rv" data-d="1">A rede está começando. Manda a sua cidade no WhatsApp e a gente responde se já atende por aí, e quando chega.</p>
+        <div class="ctas rv" data-d="2">
+          <a class="btn btn--pri" href="/obrigado?c=unidades&a=cidade">Perguntar no WhatsApp {{ARROW}}</a>
+          <a class="btn btn--line" href="/franquia">Quero abrir uma unidade</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- franquia -->
+  <section class="fran dark" id="franquia">
+    <div class="fran__bg" aria-hidden="true">{{IMG_FRANQUIA}}</div>
+    <div class="wrap fran__in">
+      <h2 class="rv">Abra uma Reformuli <em>na sua cidade.</em></h2>
+      <p class="rv" data-d="1">Todo prédio novo entrega centenas de apartamentos iguais, e quase todos precisam de reforma. Loja ou escritório por R$ 80.000, home office por R$ 8.000.</p>
+      <div class="ctas rv" data-d="2">
+        <a class="btn btn--gold" href="/franquia">Conhecer a franquia {{ARROW}}</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- contato -->
+  <section class="sec" id="contato">
+    <div class="wrap contact">
+      <div class="contact__txt">
+        <h2 class="rv">Fale <em>com a gente.</em></h2>
+        <p class="rv" data-d="1">Conte a metragem e a cidade. A equipe responde pelo WhatsApp e marca a visita técnica.</p>
+      </div>
+      <form class="form rv" data-d="1" data-c="contato" novalidate>
+        <div class="field"><label for="c-nome">Nome</label><input id="c-nome" name="nome" autocomplete="name" required></div>
+        <div class="field"><label for="c-zap">WhatsApp</label><input id="c-zap" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" required></div>
+        <div class="field"><label for="c-cidade">Cidade</label><input id="c-cidade" name="cidade" autocomplete="address-level2" required></div>
+        <div class="field"><label for="c-m2">Metragem do apartamento</label><input id="c-m2" name="metragem" type="number" inputmode="numeric" min="10" max="1000" placeholder="70"></div>
+        <div class="field field--full"><label for="c-msg">O que você quer reformar? (opcional)</label><textarea id="c-msg" name="mensagem" rows="2"></textarea></div>
+        <button class="btn btn--pri" type="submit">Enviar pelo WhatsApp {{ARROW}}</button>
+        <p class="form__note">Seus dados vão só para a equipe da Reformuli.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+{{FOOT}}
+</body>
+</html>

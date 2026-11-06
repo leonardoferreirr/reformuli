@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+{{HEAD}}
+</head>
+<body>
+{{TOP}}
+<main>
+
+  <section class="fhero" id="inicio">
+    <div class="wrap fhero__head">
+      <h1>Abra uma Reformuli <em>na sua cidade.</em></h1>
+      <div class="hero__side">
+        <p>Todo prédio novo entrega centenas de apartamentos iguais, e quase todos vão passar por reforma. Dois modelos para começar, com a marca, o método e os três padrões por trás.</p>
+        <div class="ctas">
+          <a class="btn btn--pri" href="#form">Quero ser franqueado {{ARROW}}</a>
+          <a class="btn btn--line" href="#modelos">Ver os modelos</a>
+        </div>
+      </div>
+    </div>
+    <div class="wrap"><div class="fhero__ph">{{IMG_FHERO}}</div></div>
+  </section>
+
+  <section class="sec" id="modelos">
+    <div class="wrap">
+      <div class="sec__head sec__head--center">
+        <h2 class="rv">Dois jeitos <em>de começar.</em></h2>
+      </div>
+      <div class="models">
+        {{MODELOS_FULL}}
+      </div>
+    </div>
+  </section>
+
+  <section class="sec dark" id="recebe">
+    <div class="wrap recebe">
+      <div>
+        <h2 class="rv">O que o franqueado <em>recebe.</em></h2>
+        <p class="rv" data-d="1">Para quem é: {{FRANQUIA_PERFIL}}</p>
+      </div>
+      <div class="rv" data-d="2">{{FRANQUIA_RECEBE}}</div>
+    </div>
+  </section>
+
+  <section class="sec" id="etapas">
+    <div class="wrap como">
+      <div class="como__txt">
+        <h2 class="rv">Como virar <em>franqueado.</em></h2>
+        <p class="rv" data-d="1">A Circular de Oferta de Franquia chega antes de qualquer assinatura, como manda a lei.</p>
+      </div>
+      <ol class="steps">
+        <span class="steps__fill" aria-hidden="true"></span>
+        {{ETAPAS_FRANQUIA}}
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="form">
+    <div class="wrap contact">
+      <div class="contact__txt">
+        <h2 class="rv">Quero ser <em>franqueado.</em></h2>
+        <p class="rv" data-d="1">Deixe seus dados e o time de expansão da Reformuli fala com você pelo WhatsApp.</p>
+      </div>
+      <form class="form rv" data-d="1" data-c="franquia" novalidate>
+        <div class="field"><label for="f-nome">Nome</label><input id="f-nome" name="nome" autocomplete="name" required></div>
+        <div class="field"><label for="f-zap">WhatsApp</label><input id="f-zap" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" required></div>
+        <div class="field"><label for="f-cidade">Cidade e estado</label><input id="f-cidade" name="cidade" autocomplete="address-level2" required></div>
+        <div class="field"><label for="f-modelo">Modelo de interesse</label>
+          <select id="f-modelo" name="modelo" required>
+            <option value="" disabled selected>Escolha</option>
+            <option>Loja ou escritório</option>
+            <option>Home office</option>
+            <option>Ainda não sei</option>
+          </select>
+        </div>
+        <div class="field field--full"><label for="f-msg">Algo que a gente precisa saber? (opcional)</label><textarea id="f-msg" name="mensagem" rows="2"></textarea></div>
+        <button class="btn btn--pri" type="submit">Enviar pelo WhatsApp {{ARROW}}</button>
+        <p class="form__note">Seus dados vão só para o time de expansão da Reformuli.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+{{FOOT}}
+</body>
+</html>

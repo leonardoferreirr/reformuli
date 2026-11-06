@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+{{HEAD}}
+</head>
+<body>
+<main class="thanks">
+  <div>
+    <img src="/assets/img/logo-preto.svg" alt="Reformuli Reformas" width="184" height="40">
+    <h1>Estamos abrindo <em>a conversa.</em></h1>
+    <p id="dest-txt">Em instantes você fala com a equipe da Reformuli pelo WhatsApp.</p>
+    <div class="spin" aria-hidden="true"></div>
+    <div class="ctas">
+      <a class="btn btn--pri" id="go" href="https://wa.me/{{WHATSAPP}}">Abrir agora {{ARROW}}</a>
+      <a class="btn btn--line" href="/">Voltar ao site</a>
+    </div>
+  </div>
+</main>
+{{SIM_DADOS}}
+<script>
+(function(){
+  var W='{{WHATSAPP}}', q=new URLSearchParams(location.search), c=(q.get('c')||'site').replace(/[^a-z0-9_-]/gi,''), a=(q.get('a')||'').replace(/[^a-z0-9_-]/gi,'');
+  var msg = '', guardada = '';
+  try{ guardada = sessionStorage.getItem('rf_msg') || ''; sessionStorage.removeItem('rf_msg'); }catch(e){}
+  if (guardada) msg = guardada;
+  else if (c === 'simulador') {
+    /* sem a mensagem guardada (navegador sem sessionStorage), ela é refeita a partir da metragem e do padrão da URL */
+    try {
+      var D = JSON.parse(document.getElementById('sim-dados').textContent), m2 = Math.round(+q.get('m2')) || D.metragem.inicial;
+      m2 = Math.min(D.metragem.max, Math.max(D.metragem.min, m2));
+      var P = D.planos.filter(function(p){ return p.id === a; })[0] || D.planos[0];
+      var brl = function(v){ return 'R$ ' + v.toLocaleString('pt-BR'); };
+      msg = ['Olá! Fiz uma simulação no site da Reformuli.', '', 'Plano: ' + P.nome, 'Apartamento: ' + m2 + ' m²',
+             'Valor estimado: ' + brl(m2 * P.m2) + ' (' + brl(P.m2) + ' por m², material e mão de obra incluídos)',
+             'Prazo estimado: ' + P.prazo, '', 'Quero este orçamento.'].join('\n');
+    } catch(e) {}
+  }
+  if (!msg) {
+    msg = { unidades: 'Olá! Quero saber se já tem Reformuli na minha cidade: ',
+            regras: 'Olá! Tenho uma dúvida sobre as regras de reforma no meu condomínio.',
+            franquia: 'Olá! Quero saber mais sobre a franquia Reformuli.' }[c] || 'Olá! Vim pelo site da Reformuli.';
+  }
+  var dest = 'https://wa.me/' + W + '?text=' + encodeURIComponent(msg);
+  var go = document.getElementById('go'); go.href = dest;
+  var t0 = Date.now(), partiu = false;
+  function vai(){ if(partiu) return; partiu = true; location.replace(dest); }
+  function talvez(){ var falta = 900 - (Date.now() - t0); setTimeout(vai, falta > 0 ? falta : 0); }
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event:'conversao_whatsapp', contexto:c, assunto:a, eventCallback:talvez, eventTimeout:2000 });
+  if(!window.google_tag_manager){ talvez(); }
+  setTimeout(vai, 2600);
+})();
+</script>
+</body>
+</html>
