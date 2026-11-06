@@ -289,7 +289,7 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
 
 /* ---------- rodapé ---------- */
 .foot{padding-block:clamp(3.5rem,7vw,5.5rem) 2rem}
-.foot__grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:2rem}
+.foot__grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem}
 .foot__brand img{height:2rem;width:auto}
 .foot__brand p{margin-top:1.2rem;color:var(--on-dark-muted);max-width:22rem;font-size:.92rem}
 .foot__h{margin:0 0 1rem;font-weight:500;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}

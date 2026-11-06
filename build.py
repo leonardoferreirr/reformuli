@@ -32,8 +32,6 @@ INDEXAR = False                             # True só quando o domínio estiver
 WHATSAPP = "5524998593556"                  # só dígitos com DDI; o mesmo nos três sites até o Paulo passar outro
 INSTAGRAM = ""                              # [A PREENCHER] perfil da Reformuli
 SITE_GRUPO = "https://massuogroup.vercel.app"
-SITE_CITYSTEEL = "https://citysteel.vercel.app"
-SITE_MULTIHALL = "https://multihall.vercel.app"
 OG_BASE = DOMINIO if INDEXAR else f"https://{VERCEL}"
 ROBOS_IA = ["GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "Claude-SearchBot", "Claude-User",
             "PerplexityBot", "Perplexity-User", "Google-Extended", "Applebot-Extended", "CCBot", "meta-externalagent"]
@@ -544,7 +542,6 @@ def main():
     PAGINAS["obrigado"]["preload"] = ""
     blocos = {
         "ARROW": ARROW, "ZAP": ZAP, "WHATSAPP": WHATSAPP, "ANO": str(date.today().year),
-        "SITE_GRUPO": SITE_GRUPO, "SITE_CITYSTEEL": SITE_CITYSTEEL, "SITE_MULTIHALL": SITE_MULTIHALL,
         "PLANOS_CARDS": planos_cards(), "PASSOS": passos(PASSOS), "ETAPAS_FRANQUIA": passos(ETAPAS_FRANQUIA),
         "OBRAS": obras_grid(), "MODELOS_HOME": modelos(False), "MODELOS_FULL": modelos(True),
         "FRANQUIA_RECEBE": lista(FRANQUIA_RECEBE, "recebe__lista"), "FRANQUIA_PERFIL": FRANQUIA_PERFIL,
