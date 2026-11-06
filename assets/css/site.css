@@ -579,3 +579,4 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
   .sim__ctl{gap:clamp(.6rem,1.9vh,1.3rem)}
   #simulador .sec__head h2{font-size:clamp(1.9rem,3.2vw,3.1rem)}
 }
+@media (min-width:861px){#simulador{scroll-margin-top:-4.5rem}}
