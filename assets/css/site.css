@@ -580,3 +580,11 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
   #simulador .sec__head h2{font-size:clamp(1.9rem,3.2vw,3.1rem)}
 }
 @media (min-width:861px){#simulador{scroll-margin-top:-4.5rem}}
+
+/* cabeçalho preto com o logo dourado original, textos brancos e o botão dourado */
+.top,.top.solid,.menu-open .top{background:var(--ink);-webkit-backdrop-filter:none;backdrop-filter:none;border-bottom:1px solid rgba(201,151,79,.24)}
+.top .nav a:not(.btn){color:#fff}
+.top .nav a:not(.btn)::after{background:var(--gold)}
+.top .burger{border-color:rgba(255,255,255,.38)}
+.top .burger span{background:#fff}
+@media (max-width:860px){.menu-open .nav{background:var(--ink);border-bottom-color:rgba(201,151,79,.24)}}
