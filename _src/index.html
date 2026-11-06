@@ -58,7 +58,17 @@
             <p class="ctl__label" id="sim-plano-label">Plano</p>
             <div class="seg" role="group" aria-labelledby="sim-plano-label">{{SIM_PLANOS}}</div>
           </div>
-          <p class="ctl__aviso">{{FRASE_ESTIMATIVA}}{{SIM_EXEMPLO}}</p>
+          <div class="sim__resumo dark">
+            <p class="sim__para">Valor estimado para <b class="sim__m2v">{{SIM_M2}}</b> m² no plano <b class="sim__pn">{{SIM_PLANO_NOME}}</b></p>
+            <p class="sim__total"><span class="num" data-k="total">{{SIM_TOTAL}}</span></p>
+            <p class="sim__base"><span class="sim__m2valor">{{SIM_M2_VALOR}}</span> por m². {{FRASE_INCLUSO}}</p>
+            {{SIM_SPLIT}}
+            <p class="sim__base sim__base--prazo">Prazo estimado: <b class="sim__prazo">{{SIM_PRAZO}}</b></p>
+            <div class="ctas">
+              <a class="btn btn--gold sim__cta" href="/obrigado?c=simulador">Quero este orçamento {{ARROW}}</a>
+            </div>
+            <p class="sim__aviso">{{FRASE_ESTIMATIVA}}{{SIM_EXEMPLO}}</p>
+          </div>
         </div>
         <div class="sim__out">
           <div class="sim__foto rv" data-d="1">
@@ -67,20 +77,10 @@
             <p class="sim__legenda"><span class="sim__amb">{{SIM_AMB_NOME}}</span> no plano <span class="sim__pn">{{SIM_PLANO_NOME}}</span>.</p>
           </div>
           <div class="sim__card dark rv" data-d="2">
-            <p class="sim__para">Valor estimado para <b class="sim__m2v">{{SIM_M2}}</b> m² no plano <b class="sim__pn">{{SIM_PLANO_NOME}}</b></p>
-            <p class="sim__total"><span class="num" data-k="total">{{SIM_TOTAL}}</span></p>
-            <p class="sim__base"><span class="sim__m2valor">{{SIM_M2_VALOR}}</span> por m². {{FRASE_INCLUSO}}</p>
-            {{SIM_SPLIT}}
-            <dl class="sim__dados">
-              <div><dt>Prazo estimado</dt><dd class="sim__prazo">{{SIM_PRAZO}}</dd></div>
-              <div><dt>Para quem</dt><dd class="sim__perfil">{{SIM_PERFIL}}</dd></div>
-            </dl>
+            <p class="sim__h sim__h--topo">Para quem é</p>
+            <p class="sim__perfil-txt"><span class="sim__perfil">{{SIM_PERFIL}}</span></p>
             <p class="sim__h">O que está incluído</p>
             <ul class="sim__inclui">{{SIM_INCLUI}}</ul>
-            <div class="ctas">
-              <a class="btn btn--gold sim__cta" href="/obrigado?c=simulador">Quero este orçamento {{ARROW}}</a>
-            </div>
-            <p class="sim__aviso">{{FRASE_ESTIMATIVA}}{{SIM_EXEMPLO}}</p>
           </div>
         </div>
       </div>
@@ -136,6 +136,7 @@
         <h2 class="rv">Da simulação <em>à mudança.</em></h2>
         <p class="rv" data-d="1">Quatro passos, um valor fechado. Você acompanha cada um.</p>
         <div class="ctas rv" data-d="2"><a class="btn btn--pri" href="#simulador">Começar pela simulação {{ARROW}}</a></div>
+        <figure class="foto-lado rv" data-d="3">{{IMG_COMO}}</figure>
       </div>
       <ol class="steps">
         <span class="steps__fill" aria-hidden="true"></span>
@@ -149,7 +150,7 @@
     <div class="wrap">
       <div class="sec__head">
         <h2 class="rv">Como fica <em>pronto.</em></h2>
-        <p class="rv" data-d="1">Sala, cozinha e banheiro nos três planos. Imagens ilustrativas até as fotos de obra chegarem.</p>
+        <p class="rv" data-d="1">Sala, cozinha e banheiro nos três planos. Imagens ilustrativas.</p>
       </div>
       <div class="obras">
         {{OBRAS}}
@@ -180,7 +181,7 @@
     <div class="fran__bg" aria-hidden="true">{{IMG_FRANQUIA}}</div>
     <div class="wrap fran__in">
       <h2 class="rv">Abra uma Reformuli <em>na sua cidade.</em></h2>
-      <p class="rv" data-d="1">Todo prédio novo entrega centenas de apartamentos iguais, e quase todos precisam de reforma. Loja ou escritório por R$ 80.000, home office por R$ 8.000.</p>
+      <p class="rv" data-d="1">Todo prédio novo entrega centenas de apartamentos iguais, e cada dono quer deixar o seu pronto para morar. Loja ou escritório por R$ 80.000, home office por R$ 8.000.</p>
       <div class="ctas rv" data-d="2">
         <a class="btn btn--gold" href="/franquia">Conhecer a franquia {{ARROW}}</a>
       </div>
@@ -193,6 +194,7 @@
       <div class="contact__txt">
         <h2 class="rv">Fale <em>com a gente.</em></h2>
         <p class="rv" data-d="1">Conte a metragem e a cidade. A equipe responde pelo WhatsApp e marca a visita técnica.</p>
+        <figure class="foto-lado rv" data-d="2">{{IMG_CONTATO}}</figure>
       </div>
       <form class="form rv" data-d="1" data-c="contato" novalidate>
         <div class="field"><label for="c-nome">Nome</label><input id="c-nome" name="nome" autocomplete="name" required></div>

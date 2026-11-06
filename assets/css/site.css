@@ -455,3 +455,49 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .js .rv{opacity:1;transform:none}
 }
+
+/* revisão: o valor fica à vista dos controles; imagens aparecem de verdade */
+.sim__resumo{padding:clamp(1.1rem,1.8vw,1.5rem);border-radius:var(--radius)}
+.sim__resumo .ctas{margin-top:1rem}
+.sim__resumo .sim__aviso{margin-top:.8rem}
+.sim__base--prazo{margin-top:.25rem}
+.sim__base--prazo b{font-weight:500;color:var(--on-dark)}
+.sim__h--topo{margin-top:0;padding-top:0;border-top:0}
+.sim__perfil-txt{margin-top:.5rem;color:var(--on-dark)}
+.sim__perfil-txt .sim__perfil{display:block}
+.sim__perfil-txt .sim__perfil::first-letter{text-transform:uppercase}
+.sim__ctl{gap:1.2rem;top:5rem}
+.sim__foto{min-width:0}
+.foto-lado{margin:2rem 0 0;border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
+.foto-lado img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
+.zap{background:#25D366!important;color:#fff!important;border-color:transparent!important}
+.zap:hover{background:#1EBE5A!important}
+.fran{background:var(--ink)}
+.fran__bg{left:36%}
+.fran__bg img{opacity:1;object-position:42% 45%}
+.fran__bg::after{background:linear-gradient(90deg,var(--ink) 0%,rgba(20,17,12,.6) 20%,rgba(20,17,12,0) 52%)}
+@media (min-width:861px){
+  #simulador{padding-block:clamp(2.6rem,6vh,4.4rem) clamp(3rem,7vh,5rem);scroll-margin-top:3.5rem}
+  #simulador .sec__head{grid-template-columns:auto 1fr;margin-bottom:clamp(1.2rem,3vh,2rem)}
+  #simulador .sec__head h2{font-size:clamp(2rem,3.1vw,3rem);max-width:none;white-space:nowrap}
+  #simulador .sec__head h2 em{display:block}
+  #simulador .sec__head p{max-width:26rem;font-size:.95rem}
+  .ctl__m2 input{font-size:clamp(2.2rem,3.4vw,3.2rem)}
+  .sim__total{font-size:clamp(1.9rem,2.8vw,2.7rem)}
+  .sim__palco{aspect-ratio:16/10}
+}
+@media (max-width:860px){
+  .sim__ctl{gap:.9rem}
+  .obra figcaption{display:none}
+  .foto-lado{margin:1.6rem auto 0;max-width:34rem}
+  .fran{padding-top:0}
+  .fran__bg{position:relative;left:0;aspect-ratio:16/10;margin-bottom:1.6rem}
+  .fran__bg::after{background:linear-gradient(0deg,var(--ink) 0%,rgba(20,17,12,0) 40%)}
+}
+@media (min-width:861px) and (max-height:800px){
+  #simulador .sec__head h2 em{display:inline}
+  #simulador .sec__head h2{font-size:clamp(1.8rem,2.6vw,2.4rem)}
+  .ctl__dica{display:none}
+  .sim__ctl{gap:.9rem}
+  .sim__resumo{padding:1rem 1.2rem}
+}

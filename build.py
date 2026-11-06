@@ -95,21 +95,21 @@ for _p in PLANOS:
 # rf-sala-0 e rf-sala-1 ficaram desalinhadas e não entram.
 IMAGENS = {
     "rf-sala-0b": "Sala de apartamento recém-entregue pela construtora: paredes brancas, contrapiso cinza e fios no teto",
-    "rf-sala-1b": "Sala no plano Reformuli Essencial, imagem ilustrativa: piso claro, pintura branca e plafons de LED",
-    "rf-sala-2": "Sala no plano Reformuli Confort, imagem ilustrativa: porcelanato, parede decorativa e forro com cortineiro",
-    "rf-sala-3": "Sala no plano Reformuli Premium, imagem ilustrativa: porcelanato de grande formato, revestimento decorativo e iluminação indireta",
-    "rf-cozinha-1": "Cozinha no plano Reformuli Essencial, imagem ilustrativa: revestimento nas áreas molhadas",
-    "rf-cozinha-2": "Cozinha no plano Reformuli Confort, imagem ilustrativa: revestimento moderno e LED",
-    "rf-cozinha-3": "Cozinha no plano Reformuli Premium, imagem ilustrativa: revestimentos especiais e iluminação indireta",
-    "rf-banheiro-1": "Banheiro no plano Reformuli Essencial, imagem ilustrativa: revestimento cerâmico básico",
-    "rf-banheiro-2": "Banheiro no plano Reformuli Confort, imagem ilustrativa: porcelanato e nicho",
-    "rf-banheiro-3": "Banheiro no plano Reformuli Premium, imagem ilustrativa: porcelanato, nichos e metais sofisticados",
+    "rf-sala-1b": "Sala no plano Reformuli Essencial: piso claro e pintura branca",
+    "rf-sala-2": "Sala no plano Reformuli Confort: porcelanato, parede decorativa e forro com cortineiro",
+    "rf-sala-3": "Sala no plano Reformuli Premium: porcelanato de grande formato, revestimento decorativo e iluminação indireta",
+    "rf-cozinha-1": "Cozinha no plano Reformuli Essencial: revestimento nas áreas molhadas",
+    "rf-cozinha-2": "Cozinha no plano Reformuli Confort: revestimento moderno e LED",
+    "rf-cozinha-3": "Cozinha no plano Reformuli Premium: revestimentos especiais e iluminação indireta",
+    "rf-banheiro-1": "Banheiro no plano Reformuli Essencial: revestimento cerâmico básico",
+    "rf-banheiro-2": "Banheiro no plano Reformuli Confort: porcelanato e nicho",
+    "rf-banheiro-3": "Banheiro no plano Reformuli Premium: porcelanato, nichos e metais sofisticados",
     "rf-fachada": "Fachada de uma loja Reformuli Reformas, com letreiro dourado e amostras de pedras na vitrine",
     "rf-equipe": "Equipe da Reformuli de uniforme preto assentando piso e instalando forro num apartamento novo",
-    "rf-capacete": "Capacete e projeto de reforma sobre a bancada de um apartamento em obra",
+    "rf-capacete": "Engenheira da Reformuli de capacete, com a planta do apartamento no tablet, num apartamento novo",
     "rf-showroom": "Showroom da Reformuli com amostras de porcelanato, madeira e pedras",
-    "rf-homeoffice": "Mesa de trabalho em casa com o notebook aberto no site da Reformuli",
-    "rf-chaves": "Chaves de um apartamento novo na mão, com a sala vazia ao fundo",
+    "rf-homeoffice": "Mesa de trabalho em casa com notebook mostrando a marca Reformuli, planta e amostras de acabamento",
+    "rf-chaves": "Casal com as chaves na mão, no apartamento novo ainda vazio",
 }
 # galeria de obras: a ordem é a de exibição; só entra o que existir em assets/img
 OBRAS = ["rf-sala-3", "rf-cozinha-3", "rf-banheiro-2", "rf-sala-2", "rf-equipe", "rf-cozinha-2", "rf-banheiro-3",
@@ -307,7 +307,7 @@ def planos_cards():
         out.append(
             f'<article class="pad" id="plano-{p["id"]}" style="--i:{i}">'
             f'<div class="pad__ph">{foto}</div>'
-            f'<div class="pad__txt"><p class="pad__n">0{i+1}</p><h3>{p["nome"]}</h3>'
+            f'<div class="pad__txt"><h3>{p["nome"]}</h3>'
             f'<p class="pad__m2">{brl(p["m2"])} <small>por m². {FRASE_INCLUSO}</small></p>'
             f'<p class="pad__prazo">Prazo estimado: {p["prazo"]}</p>'
             f'<p class="pad__perfil">Para {p["perfil"]}</p>'
@@ -521,7 +521,7 @@ PAGINAS = {
     "franquia": dict(
         arquivo="franquia.html", path="/franquia", trilha="Franquia",
         title="Franquia de reforma de apartamentos a partir de R$ 8.000 | Reformuli",
-        desc="Abra uma Reformuli na sua cidade: loja ou escritório (R$ 80.000) ou home office (R$ 8.000), com a marca, o método e os três padrões por trás.",
+        desc="Abra uma Reformuli na sua cidade: loja ou escritório (R$ 80.000) ou home office (R$ 8.000), com a marca, o método e os três planoes por trás.",
         nav_franquia=' aria-current="page"', cta=("Quero ser franqueado", "#form")),
     "obrigado": dict(
         arquivo="obrigado.html", path="/obrigado",
@@ -550,6 +550,8 @@ def main():
         "IMG_DEPOIS": img("rf-sala-3", sizes="(max-width:860px) 92vw, 1320px", lazy=False, cls="cmpr__img"),
         "IMG_UNIDADES": img(primeira("rf-showroom", "rf-chaves", "rf-equipe") or "", sizes="(max-width:860px) 92vw, 46vw"),
         "IMG_FRANQUIA": img(primeira("rf-fachada") or "", sizes="100vw"),
+        "IMG_COMO": img(primeira("rf-capacete") or "", sizes="(max-width:860px) 92vw, 34vw"),
+        "IMG_CONTATO": img(primeira("rf-chaves") or "", sizes="(max-width:860px) 92vw, 40vw"),
         "IMG_REGRAS": img(primeira("rf-capacete", "rf-equipe") or "", sizes="(max-width:860px) 92vw, 40vw"),
         "IMG_FHERO": img(primeira("rf-fachada") or "", sizes="(max-width:860px) 92vw, 1320px", lazy=False),
         "PRECOS_AVISO": "" if PRECOS_CONFIRMADOS else FRASE_EXEMPLO,
@@ -570,6 +572,9 @@ def main():
         html = html.replace("{{HEAD}}", head).replace("{{TOP}}", top).replace("{{FOOT}}", foot)
         for k, v in blocos.items():
             html = html.replace("{{" + k + "}}", v)
+        # sem o que o franqueado recebe confirmado pelo Paulo, a seção não vai ao ar com marcador à vista
+        if "[A PREENCHER]" in " ".join(FRANQUIA_RECEBE) + FRANQUIA_PERFIL:
+            html = re.sub(r"\s*<!--RECEBE-->.*?<!--/RECEBE-->", "", html, flags=re.S)
         sobra = re.findall(r"\{\{[A-Z_0-9]+\}\}", html)
         if sobra:
             print(f"  ! {nome}: marcadores sem valor {sorted(set(sobra))}")
