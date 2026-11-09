@@ -102,7 +102,7 @@ IMAGENS = {
     "rf-banheiro-1": "Banheiro no plano Reformuli Essencial: revestimento cerâmico básico",
     "rf-banheiro-2": "Banheiro no plano Reformuli Confort: porcelanato e nicho",
     "rf-banheiro-3": "Banheiro no plano Reformuli Premium: porcelanato, nichos e metais sofisticados",
-    "rf-fachada": "Fachada de uma loja Reformuli Reformas, com letreiro dourado e amostras de pedras na vitrine",
+    "rf-escritorio": "Escritório Reformuli Reformas com fachada de vidro, letreiro dourado e duas mesas de atendimento",
     "rf-equipe": "Equipe da Reformuli de uniforme preto assentando piso e instalando forro num apartamento novo",
     "rf-capacete": "Engenheira da Reformuli de capacete, com a planta do apartamento no tablet, num apartamento novo",
     "rf-showroom": "Showroom da Reformuli com amostras de porcelanato, madeira e pedras",
@@ -129,7 +129,7 @@ PASSOS = [
 
 # ---------------------------------------------------------------- franquia
 MODELOS = [
-    dict(id="loja", nome="Loja ou escritório", preco="R$ 80.000", img=("rf-fachada",),
+    dict(id="loja", nome="Loja ou escritório", preco="R$ 80.000", img=("rf-escritorio",),
          texto="Para quem quer um ponto físico na região, com atendimento presencial e amostras à mão."),
     dict(id="home", nome="Home office", preco="R$ 8.000", img=("rf-homeoffice", "rf-capacete", "rf-equipe"),
          texto="Para começar com estrutura leve, atendendo pelo WhatsApp e no apartamento do cliente."),
@@ -538,7 +538,7 @@ def main():
     pre_home = "\n".join(x for x in [preload("rf-sala-3", TAM_HERO),
                                      preload("rf-sala-0b", TAM_HERO)] if x)
     PAGINAS["index"]["preload"] = pre_home
-    PAGINAS["franquia"]["preload"] = preload(primeira("rf-fachada") or "", "(max-width:860px) 92vw, 1320px") if primeira("rf-fachada") else ""
+    PAGINAS["franquia"]["preload"] = preload(primeira("rf-escritorio") or "", "(max-width:860px) 92vw, 1320px") if primeira("rf-escritorio") else ""
     PAGINAS["obrigado"]["preload"] = ""
     blocos = {
         "ARROW": ARROW, "ZAP": ZAP, "WHATSAPP": WHATSAPP, "ANO": str(date.today().year),
@@ -550,11 +550,11 @@ def main():
         "IMG_ANTES": img("rf-sala-0b", sizes=TAM_HERO, lazy=False, cls="cmpr__img"),
         "IMG_DEPOIS": img("rf-sala-3", sizes=TAM_HERO, lazy=False, cls="cmpr__img"),
         "IMG_UNIDADES": img(primeira("rf-showroom", "rf-chaves", "rf-equipe") or "", sizes="(max-width:860px) 92vw, 46vw"),
-        "IMG_FRANQUIA": img(primeira("rf-fachada") or "", sizes="100vw"),
+        "IMG_FRANQUIA": img(primeira("rf-escritorio") or "", sizes="100vw"),
         "IMG_COMO": img(primeira("rf-capacete") or "", sizes="(max-width:860px) 92vw, 34vw"),
         "IMG_CONTATO": img(primeira("rf-chaves") or "", sizes="(max-width:860px) 92vw, 40vw"),
         "IMG_REGRAS": img(primeira("rf-capacete", "rf-equipe") or "", sizes="(max-width:860px) 92vw, 40vw"),
-        "IMG_FHERO": img(primeira("rf-fachada") or "", sizes="(max-width:860px) 92vw, 1320px", lazy=False),
+        "IMG_FHERO": img(primeira("rf-escritorio") or "", sizes="(max-width:860px) 92vw, 1320px", lazy=False),
         "PRECOS_AVISO": "" if PRECOS_CONFIRMADOS else FRASE_EXEMPLO,
     }
     blocos.update(sim_inicial())
