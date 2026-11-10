@@ -197,10 +197,10 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
 .num{transition:color .3s}
 .num.run{color:var(--gold)}
 
-/* ---------- três padrões empilhando no scroll ---------- */
+/* ---------- três padrões ---------- */
 .pads{display:grid;gap:1.2rem}
-.pad{position:sticky;top:calc(5.5rem + var(--i,0) * 1.2rem);display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,3rem);align-items:start;
-  padding:clamp(1.2rem,2.2vw,1.8rem);border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);box-shadow:0 -18px 40px -30px rgba(20,17,12,.4)}
+.pad{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.4rem,3vw,3rem);align-items:start;
+  padding:clamp(1.2rem,2.2vw,1.8rem);border:1px solid var(--line);border-radius:var(--radius);background:var(--paper)}
 .pad__ph{aspect-ratio:4/3;border-radius:var(--radius-s);overflow:hidden;background:var(--bg-2)}
 .pad__ph img{width:100%;height:100%;object-fit:cover}
 .pad__ph:empty{display:none}
@@ -388,7 +388,7 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
   .sim__total i{font-size:.55em}
   .sim__inclui{columns:1}
 
-  .pad{position:relative;top:auto;grid-template-columns:1fr;gap:1rem;text-align:center}
+  .pad{grid-template-columns:1fr;gap:1rem;text-align:center}
   .pad__lista{text-align:left;grid-template-columns:1fr}
   .sim__dados{grid-template-columns:1fr;gap:.6rem}
   .sim__dados dt{padding-top:0}
