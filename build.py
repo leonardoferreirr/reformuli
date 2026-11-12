@@ -70,7 +70,7 @@ AMBIENTES = [("sala", "Sala"), ("cozinha", "Cozinha"), ("banheiro", "Banheiro")]
 # foto de cada ambiente em cada plano, na ordem de PLANOS (Essencial, Confort, Premium).
 # Se uma faltar, o simulador usa a mais próxima do mesmo ambiente e o build avisa.
 FOTOS_SIM = {
-    "sala": ["rf-sala-1b", "rf-sala-2", "rf-sala-3"],
+    "sala": ["rf-sala-1b", "rf-sala-2-v2", "rf-sala-3-v2"],
     "cozinha": ["rf-cozinha-1", "rf-cozinha-2", "rf-cozinha-3"],
     "banheiro": ["rf-banheiro-1", "rf-banheiro-2", "rf-banheiro-3"],
 }
@@ -94,8 +94,8 @@ for _p in PLANOS:
 IMAGENS = {
     "rf-sala-0b": "Sala de apartamento recém-entregue pela construtora: paredes brancas, contrapiso cinza e fios no teto",
     "rf-sala-1b": "Sala no plano Reformuli Essencial: piso claro e pintura branca",
-    "rf-sala-2": "Sala no plano Reformuli Confort: porcelanato, parede decorativa e forro com cortineiro",
-    "rf-sala-3": "Sala no plano Reformuli Premium: porcelanato de grande formato, revestimento decorativo e iluminação indireta",
+    "rf-sala-2-v2": "Sala no plano Reformuli Confort: porcelanato, painel de madeira atrás da TV e forro com iluminação indireta",
+    "rf-sala-3-v2": "Sala no plano Reformuli Premium: porcelanato polido de grande formato, parede ripada com nicho iluminado para a TV, perfis de LED no forro e cortina de linho",
     "rf-cozinha-1": "Cozinha no plano Reformuli Essencial: revestimento nas áreas molhadas",
     "rf-cozinha-2": "Cozinha no plano Reformuli Confort: revestimento moderno e LED",
     "rf-cozinha-3": "Cozinha no plano Reformuli Premium: revestimentos especiais e iluminação indireta",
@@ -110,7 +110,7 @@ IMAGENS = {
     "rf-chaves": "Casal com as chaves na mão, no apartamento novo ainda vazio",
 }
 # galeria de obras: a ordem é a de exibição; só entra o que existir em assets/img
-OBRAS = ["rf-sala-3", "rf-cozinha-3", "rf-banheiro-2", "rf-sala-2", "rf-equipe", "rf-cozinha-2", "rf-banheiro-3",
+OBRAS = ["rf-sala-3-v2", "rf-cozinha-3", "rf-banheiro-2", "rf-sala-2-v2", "rf-equipe", "rf-cozinha-2", "rf-banheiro-3",
          "rf-sala-1b", "rf-cozinha-1", "rf-banheiro-1"]
 OBRAS_MAX = 6
 
@@ -535,7 +535,7 @@ PAGINAS = {
 def main():
     css = minificar(CSS.read_text())
     head_t, top_t, foot_t = (SRC / "head.html").read_text(), (SRC / "top.html").read_text(), (SRC / "foot.html").read_text()
-    pre_home = "\n".join(x for x in [preload("rf-sala-3", TAM_HERO),
+    pre_home = "\n".join(x for x in [preload("rf-sala-3-v2", TAM_HERO),
                                      preload("rf-sala-0b", TAM_HERO)] if x)
     PAGINAS["index"]["preload"] = pre_home
     PAGINAS["franquia"]["preload"] = preload(primeira("rf-escritorio") or "", "(max-width:860px) 92vw, 1320px") if primeira("rf-escritorio") else ""
@@ -548,7 +548,7 @@ def main():
         "SIM_PLANOS": sim_planos(), "SIM_AMBIENTES": sim_ambientes(), "REGRAS_PAPELADA": regras_papelada(),
         "FRASE_ESTIMATIVA": FRASE_ESTIMATIVA,
         "IMG_ANTES": img("rf-sala-0b", sizes=TAM_HERO, lazy=False, cls="cmpr__img"),
-        "IMG_DEPOIS": img("rf-sala-3", sizes=TAM_HERO, lazy=False, cls="cmpr__img"),
+        "IMG_DEPOIS": img("rf-sala-3-v2", sizes=TAM_HERO, lazy=False, cls="cmpr__img"),
         "IMG_UNIDADES": img(primeira("rf-showroom", "rf-chaves", "rf-equipe") or "", sizes="(max-width:860px) 92vw, 46vw"),
         "IMG_FRANQUIA": img(primeira("rf-escritorio") or "", sizes="100vw"),
         "IMG_COMO": img(primeira("rf-capacete") or "", sizes="(max-width:860px) 92vw, 34vw"),
