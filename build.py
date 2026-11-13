@@ -516,8 +516,8 @@ def hash_de(p):
 
 
 # ---------------------------------------------------------------- quem somos
-# Rascunho do Leonardo em 12/11/2026, feito só com o que o Paulo já confirmou (planos, valor por m² com material e
-# mão de obra, simulador). A validar com o Paulo: ele mandou o texto do Massuo, mas não o da Reformuli.
+# Escrito em 12/11/2026 só com o que o Paulo já confirmou (planos, valor por m² com material e mão de obra,
+# simulador) e aprovado pelo Leonardo no mesmo dia. Se o Paulo mandar um texto dele, ele substitui este.
 QUEM_SOMOS = ("A Reformuli existe para transformar o apartamento que a construtora entrega no lugar onde você quer morar. "
               "São três planos, Essencial, Confort e Premium, com material e mão de obra num contrato só e um valor por "
               "metro quadrado que você conhece antes de começar. Simule no site, escolha o seu acabamento e fale com a gente "
