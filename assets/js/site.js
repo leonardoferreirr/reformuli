@@ -54,7 +54,8 @@
     /* em Quem somos ela espera o texto sair da tela, para não cobrir a última linha */
     const palcoQuem = d.querySelector('.quem');
     const verZap = () => {
-      const naQuem = palcoQuem && palcoQuem.getBoundingClientRect().bottom > innerHeight * 0.92;
+      const rq = palcoQuem && palcoQuem.getBoundingClientRect();
+      const naQuem = rq && rq.top < innerHeight * 0.5 && rq.bottom > innerHeight * 0.92;
       zap.classList.toggle('ver', !naQuem && (w.scrollY > innerHeight * 0.45 || !d.querySelector('.hero')));
     };
     w.addEventListener('scroll', verZap, { passive: true });
@@ -294,21 +295,4 @@
     acender();
   } else palavras.forEach(s => s.classList.add('on'));
 
-  /* ---------- parallax: a foto da faixa anda mais devagar que a página ---------- */
-  const pars = [...d.querySelectorAll('[data-parallax]')];
-  if (pars.length && !rm) {
-    let pedido = false;
-    const mover = () => {
-      pedido = false;
-      const H = innerHeight;
-      pars.forEach(el => {
-        const r = el.parentElement.getBoundingClientRect();
-        if (r.bottom < -50 || r.top > H + 50) return;
-        const p = (r.top + r.height / 2 - H / 2) / (H + r.height);
-        el.style.transform = `translate3d(0,${(p * -20).toFixed(2)}%,0)`;
-      });
-    };
-    w.addEventListener('scroll', () => { if (!pedido) { pedido = true; requestAnimationFrame(mover); } }, { passive: true });
-    mover();
-  }
 })();

@@ -38,5 +38,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/quem-somos",
+      "destination": "/#quem-somos",
+      "permanent": false
+    }
   ]
 }
