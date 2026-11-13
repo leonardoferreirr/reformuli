@@ -415,7 +415,7 @@ def schema(nome, pg):
     if WHATSAPP:
         negocio["telephone"] = fone()
         marca["contactPoint"] = {"@type": "ContactPoint", "telephone": fone(), "contactType": "sales", "availableLanguage": "pt-BR"}
-    pagina = {"@type": "WebPage", "@id": f"{url}#pagina", "url": url, "name": pg["title"], "description": pg["desc"],
+    pagina = {"@type": "AboutPage" if nome == "quem-somos" else "WebPage", "@id": f"{url}#pagina", "url": url, "name": pg["title"], "description": pg["desc"],
               "isPartOf": {"@id": f"{S}/#site"}, "about": org if nome == "franquia" else neg, "inLanguage": "pt-BR",
               "primaryImageOfPage": {"@type": "ImageObject", "url": f"{S}/assets/img/og-image.jpg", "width": 1200, "height": 630}}
     grafo = [marca, negocio, {"@type": "WebSite", "@id": f"{S}/#site", "url": f"{S}/", "name": "Reformuli Reformas",
@@ -460,6 +460,7 @@ def llms():
     lin += ["", "### Como virar franqueado", ""] + [f"{i}. **{t}.** {p}" for i, (t, p) in enumerate(ETAPAS_FRANQUIA, 1)]
     lin += ["", "## Páginas", "",
             f"- [Início]({S}/): simulador, padrões, regras do condomínio, obras, unidades, franquia e contato.",
+            f"- [Quem somos]({S}/quem-somos): o que a Reformuli faz e como trabalha.",
             f"- [Franquia]({S}/franquia): modelos, investimento e etapas.",
             "", "## Contato", ""]
     if WHATSAPP:
@@ -514,12 +515,43 @@ def hash_de(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()[:10] if p.exists() else "0"
 
 
+# ---------------------------------------------------------------- quem somos
+# Rascunho do Leonardo em 12/11/2026, feito só com o que o Paulo já confirmou (planos, valor por m² com material e
+# mão de obra, simulador). A validar com o Paulo: ele mandou o texto do Massuo, mas não o da Reformuli.
+QUEM_SOMOS = ("A Reformuli existe para transformar o apartamento que a construtora entrega no lugar onde você quer morar. "
+              "São três planos, Essencial, Confort e Premium, com material e mão de obra num contrato só e um valor por "
+              "metro quadrado que você conhece antes de começar. Simule no site, escolha o seu acabamento e fale com a gente "
+              "quando estiver pronto.")
+PORQUE = [
+    ("Apartamento novo", "Reformamos o apartamento como a construtora entrega, para ficar pronto para morar."),
+    ("Três planos", "Essencial, Confort e Premium, cada um com a sua lista de acabamentos."),
+    ("Valor por m²", "Material e mão de obra num contrato só, a partir de R$ 832 por m²."),
+    ("Simulação na hora", "Você coloca a metragem no site e vê o valor do plano que escolheu."),
+]
+
+
+def palavras(texto):
+    from html import escape
+    return " ".join(f"<span>{escape(p)}</span>" for p in texto.split())
+
+
+def porque():
+    from html import escape
+    return "\n        ".join(f'<article class="porque__item rv"><span class="porque__num">{i:02d}</span>'
+                              f'<h3>{escape(t)}</h3><p>{escape(x)}</p></article>' for i, (t, x) in enumerate(PORQUE, 1))
+
+
 PAGINAS = {
     "index": dict(
         arquivo="index.html", path="/",
         title="Reforma de apartamento novo com valor por m² | Reformuli Reformas",
         desc="Pegou as chaves? A Reformuli reforma o apartamento entregue pela construtora em três planos, a partir de R$ 832 por m², com material e mão de obra incluídos. Simule a metragem e veja o valor na hora.",
         nav_franquia="", cta=("Fale com a gente", "/#contato")),
+    "quem-somos": dict(
+        arquivo="quem-somos.html", path="/quem-somos", trilha="Quem somos",
+        title="Quem somos | Reformuli Reformas",
+        desc="A Reformuli transforma o apartamento que a construtora entrega no lugar onde você quer morar: três planos, material e mão de obra num contrato só e valor por m² que você simula no site.",
+        nav_franquia="", nav_quem=' aria-current="page"', cta=("Fale com a gente", "/#contato")),
     "franquia": dict(
         arquivo="franquia.html", path="/franquia", trilha="Franquia",
         title="Franquia de reforma de apartamentos a partir de R$ 8.000 | Reformuli",
@@ -540,6 +572,7 @@ def main():
     PAGINAS["index"]["preload"] = pre_home
     PAGINAS["franquia"]["preload"] = preload(primeira("rf-escritorio") or "", "(max-width:860px) 92vw, 1320px") if primeira("rf-escritorio") else ""
     PAGINAS["obrigado"]["preload"] = ""
+    PAGINAS["quem-somos"]["preload"] = preload("rf-escritorio", "100vw")
     blocos = {
         "ARROW": ARROW, "ZAP": ZAP, "WHATSAPP": WHATSAPP, "ANO": str(date.today().year),
         "PLANOS_CARDS": planos_cards(), "PASSOS": passos(PASSOS), "ETAPAS_FRANQUIA": passos(ETAPAS_FRANQUIA),
@@ -556,6 +589,9 @@ def main():
         "IMG_REGRAS": img(primeira("rf-capacete", "rf-equipe") or "", sizes="(max-width:860px) 92vw, 40vw"),
         "IMG_FHERO": img(primeira("rf-escritorio") or "", sizes="(max-width:860px) 92vw, 1320px", lazy=False),
         "PRECOS_AVISO": "" if PRECOS_CONFIRMADOS else FRASE_EXEMPLO,
+        "MANIFESTO": palavras(QUEM_SOMOS), "PORQUE": porque(),
+        "IMG_QUEM": img("rf-escritorio", alt="", sizes="100vw", lazy=False),
+        "IMG_BANDA": img("rf-sala-3-v3", alt="", sizes="100vw"),
     }
     blocos.update(sim_inicial())
     jsv = hash_de(JS)
@@ -566,7 +602,7 @@ def main():
                 .replace("{{URL}}", DOMINIO + pg["path"]).replace("{{DOMINIO}}", DOMINIO).replace("{{ROBOTS}}", robots)
                 .replace("{{OG_BASE}}", OG_BASE).replace("{{PRELOAD}}", pg["preload"])
                 .replace("{{SCHEMA}}", schema(nome, pg) if nome != "obrigado" else ""))
-        top = (top_t.replace("{{NAV_FRANQUIA}}", pg["nav_franquia"])
+        top = (top_t.replace("{{NAV_FRANQUIA}}", pg["nav_franquia"]).replace("{{NAV_QUEM}}", pg.get("nav_quem", ""))
                .replace("{{TOP_CTA}}", pg["cta"][0]).replace("{{TOP_CTA_HREF}}", pg["cta"][1]))
         foot = foot_t.replace("{{JSV}}", jsv)
         html = (SRC / f"{nome}.html").read_text()
@@ -591,7 +627,7 @@ def main():
     antes = dict(re.findall(r"<loc>https?://[^/<]+(/[^<]*)</loc><lastmod>([\d-]+)</lastmod>", mapa.read_text())) if mapa.exists() else {}
     hoje = date.today().isoformat()
     urls = "".join(f"  <url><loc>{DOMINIO}{p}</loc><lastmod>{hoje if p in mudou or p not in antes else antes[p]}</lastmod></url>\n"
-                   for p in ["/", "/franquia"])
+                   for p in ["/", "/quem-somos", "/franquia"])
     mapa.write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n')
     (RAIZ / "llms.txt").write_text(llms())
     vercel_json()

@@ -51,7 +51,12 @@
   /* ---------- bolinha do WhatsApp: entra depois do topo, para não cobrir o texto dele ---------- */
   const zap = d.querySelector('.zap');
   if (zap) {
-    const verZap = () => zap.classList.toggle('ver', w.scrollY > innerHeight * 0.45 || !d.querySelector('.hero'));
+    /* em Quem somos ela espera o texto sair da tela, para não cobrir a última linha */
+    const palcoQuem = d.querySelector('.quem');
+    const verZap = () => {
+      const naQuem = palcoQuem && palcoQuem.getBoundingClientRect().bottom > innerHeight * 0.92;
+      zap.classList.toggle('ver', !naQuem && (w.scrollY > innerHeight * 0.45 || !d.querySelector('.hero')));
+    };
     w.addEventListener('scroll', verZap, { passive: true });
     verZap();
   }
@@ -269,4 +274,41 @@
     try { sessionStorage.setItem('rf_msg', linhas.join('\n')); } catch (_) {}
     location.href = `/obrigado?c=${encodeURIComponent(form.dataset.c || 'form')}&a=${fr ? 'franquia' : 'reforma'}`;
   }));
+  /* ---------- quem somos: o texto acende palavra a palavra enquanto a seção fica parada ---------- */
+  const secQuem = d.querySelector('.quem'), manif = d.querySelector('[data-manifesto]');
+  const palavras = manif ? [...manif.querySelectorAll('span')] : [];
+  if (secQuem) {
+    if ('IntersectionObserver' in w) new IntersectionObserver(([en]) => secQuem.classList.toggle('perto', en.isIntersecting), { rootMargin: '30% 0px' }).observe(secQuem);
+    else secQuem.classList.add('perto');
+  }
+  if (palavras.length && secQuem && !rm) {
+    let acesas = -1;
+    const acender = () => {
+      const r = secQuem.getBoundingClientRect(), H = innerHeight, curso = r.height - H;
+      const p = curso > 0 ? Math.min(1, Math.max(0, (-r.top + H * 0.12) / (curso * 0.78))) : 1;
+      const n = Math.round(p * palavras.length);
+      if (n !== acesas) { palavras.forEach((s, i) => s.classList.toggle('on', i < n)); acesas = n; }
+    };
+    w.addEventListener('scroll', acender, { passive: true });
+    w.addEventListener('resize', acender);
+    acender();
+  } else palavras.forEach(s => s.classList.add('on'));
+
+  /* ---------- parallax: a foto da faixa anda mais devagar que a página ---------- */
+  const pars = [...d.querySelectorAll('[data-parallax]')];
+  if (pars.length && !rm) {
+    let pedido = false;
+    const mover = () => {
+      pedido = false;
+      const H = innerHeight;
+      pars.forEach(el => {
+        const r = el.parentElement.getBoundingClientRect();
+        if (r.bottom < -50 || r.top > H + 50) return;
+        const p = (r.top + r.height / 2 - H / 2) / (H + r.height);
+        el.style.transform = `translate3d(0,${(p * -20).toFixed(2)}%,0)`;
+      });
+    };
+    w.addEventListener('scroll', () => { if (!pedido) { pedido = true; requestAnimationFrame(mover); } }, { passive: true });
+    mover();
+  }
 })();

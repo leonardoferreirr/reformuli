@@ -586,3 +586,46 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
 .top .burger{border-color:rgba(255,255,255,.38)}
 .top .burger span{background:#fff}
 @media (max-width:860px){.menu-open .nav{background:var(--ink);border-bottom-color:rgba(201,151,79,.24)}}
+
+/* ---------- quem somos: o texto inteiro cabe na tela e acende palavra a palavra com a seção parada,
+   sobre a foto do escritório fixa atrás (parallax por clip-path), letreiro em cima e texto embaixo ---------- */
+.quem{position:relative;clip-path:inset(0);background:var(--ink)}
+.js .quem{height:240vh}
+.quem__fundo{position:fixed;inset:0;z-index:0;pointer-events:none;background:var(--ink)}
+.js .quem__fundo{visibility:hidden}
+.js .quem.perto .quem__fundo{visibility:visible}
+.quem__fundo img{width:100%;height:100%;object-fit:cover;object-position:50% 0%}
+.quem__fundo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,12,.22) 0%,rgba(20,17,12,.32) 36%,rgba(20,17,12,.86) 57%,rgba(20,17,12,.93) 100%)}
+.quem__palco{position:sticky;top:0;z-index:1;display:flex;align-items:flex-end;min-height:100vh;min-height:100svh;padding-block:6rem clamp(1.6rem,4.5vh,3.2rem)}
+.quem__in{text-align:center}
+.quem h1{font-size:clamp(2.5rem,4.8vw,4.5rem);color:var(--on-dark)}
+.manifesto{max-width:60rem;margin:clamp(1.1rem,3vh,2.2rem) auto 0;font-size:clamp(1.1rem,1.85vw,1.75rem);font-weight:300;line-height:1.5;letter-spacing:-.012em;text-wrap:pretty;color:var(--on-dark)}
+.js .manifesto span{opacity:.38;transition:opacity .45s var(--ease-out)}
+.js .manifesto span.on{opacity:1}
+@media (max-width:860px){
+  .quem__fundo img{height:56%;margin-top:4.2rem}
+  .quem__fundo::after{background:linear-gradient(180deg,rgba(20,17,12,.12) 0%,rgba(20,17,12,.22) 34%,rgba(20,17,12,.93) 52%,var(--ink) 62%)}
+  .quem h1{font-size:clamp(2.1rem,9vw,3rem)}
+  .manifesto{font-size:clamp(1rem,4.3vw,1.3rem);line-height:1.46}
+}
+@media (prefers-reduced-motion:reduce){.js .quem{height:auto}.js .manifesto span{opacity:1}}
+
+/* faixa com a foto andando mais devagar que a página */
+.banda{position:relative;overflow:hidden;display:flex;align-items:center;min-height:clamp(26rem,78vh,46rem)}
+.banda__img{position:absolute;inset:-14% 0;will-change:transform}
+.banda__img img{width:100%;height:100%;object-fit:cover}
+.banda::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(20,17,12,.8) 0%,rgba(20,17,12,.45) 50%,rgba(20,17,12,.12) 100%)}
+.banda__in{position:relative;z-index:1}
+.banda h2{max-width:14ch;font-size:var(--t-h2);color:var(--on-dark)}
+@media (max-width:860px){.banda::after{background:linear-gradient(180deg,rgba(20,17,12,.2) 0%,rgba(20,17,12,.78) 100%)}.banda{align-items:flex-end;padding-bottom:3rem}}
+
+/* como a Reformuli trabalha */
+.porque h2{text-align:center;font-size:var(--t-h2)}
+.porque__grade{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(1rem,2vw,1.6rem);margin-top:clamp(2rem,5vw,3.5rem)}
+.porque__item{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(1.4rem,2.4vw,2rem)}
+.porque__num{display:block;color:var(--bronze);font-size:.85rem;font-weight:500;letter-spacing:.08em}
+.porque__item h3{margin-top:.9rem;font-size:clamp(1.15rem,1.5vw,1.35rem);font-weight:500;letter-spacing:-.01em;line-height:1.25}
+.porque__item p{margin-top:.6rem;color:var(--muted);font-size:.96rem}
+.ctas--centro{justify-content:center;margin-top:clamp(2rem,4vw,3rem)}
+@media (max-width:1000px){.porque__grade{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.porque__grade{grid-template-columns:1fr}.ctas--centro{flex-direction:column;align-items:stretch}.ctas--centro .btn{justify-content:center}}
