@@ -597,16 +597,20 @@ h3{font-weight:400;letter-spacing:-.015em;line-height:1.2;font-size:1.3rem}
 .quem__fundo img{width:100%;height:100%;object-fit:cover;object-position:50% 0%}
 .quem__fundo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,12,.22) 0%,rgba(20,17,12,.32) 36%,rgba(20,17,12,.86) 57%,rgba(20,17,12,.93) 100%)}
 .quem__palco{position:sticky;top:0;z-index:1;display:flex;align-items:flex-end;min-height:100vh;min-height:100svh;padding-block:6rem clamp(1.6rem,4.5vh,3.2rem)}
-.quem__in{text-align:center}
+.quem__in{text-align:center;position:relative;isolation:isolate}
+/* o texto do Paulo é longo: um véu escuro só atrás dele mantém a leitura e deixa o letreiro da foto à mostra em cima */
+.quem__in::before{content:"";position:absolute;left:50%;width:100vw;transform:translateX(-50%);top:-5.5rem;bottom:-60vh;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(20,17,12,0),rgba(20,17,12,.9) 5.5rem)}
 .quem h2{font-size:clamp(2.5rem,4.8vw,4.5rem);color:var(--on-dark)}
-.manifesto{max-width:60rem;margin:clamp(1.1rem,3vh,2.2rem) auto 0;font-size:clamp(1.1rem,1.85vw,1.75rem);font-weight:300;line-height:1.5;letter-spacing:-.012em;text-wrap:pretty;color:var(--on-dark)}
+.manifesto{max-width:58rem;margin:clamp(1rem,2.6vh,2rem) auto 0;font-size:clamp(1.02rem,1.5vw,1.45rem);font-weight:300;line-height:1.5;letter-spacing:-.012em;text-wrap:pretty;color:var(--on-dark)}
+.manifesto p+p{margin-top:.75em}
 .js .manifesto span{opacity:.38;transition:opacity .45s var(--ease-out)}
 .js .manifesto span.on{opacity:1}
 @media (max-width:860px){
   .quem__fundo img{height:56%;margin-top:4.2rem}
   .quem__fundo::after{background:linear-gradient(180deg,rgba(20,17,12,.12) 0%,rgba(20,17,12,.22) 34%,rgba(20,17,12,.93) 52%,var(--ink) 62%)}
   .quem h2{font-size:clamp(2.1rem,9vw,3rem)}
-  .manifesto{font-size:clamp(1rem,4.3vw,1.3rem);line-height:1.46}
+  .manifesto{font-size:clamp(.92rem,3.9vw,1.15rem);line-height:1.45}
 }
+@media (max-width:899px) and (max-height:700px){.manifesto{font-size:.86rem;line-height:1.42}.quem h2{font-size:1.9rem}}
 @media (prefers-reduced-motion:reduce){.js .quem{height:auto}.js .manifesto span{opacity:1}}
 

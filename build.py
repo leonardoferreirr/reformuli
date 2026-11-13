@@ -515,17 +515,25 @@ def hash_de(p):
 
 
 # ---------------------------------------------------------------- quem somos
-# Escrito em 12/11/2026 só com o que o Paulo já confirmou (planos, valor por m² com material e mão de obra,
-# simulador) e aprovado pelo Leonardo no mesmo dia. Se o Paulo mandar um texto dele, ele substitui este.
-QUEM_SOMOS = ("A Reformuli existe para transformar o apartamento que a construtora entrega no lugar onde você quer morar. "
-              "São três planos, Essencial, Confort e Premium, com material e mão de obra num contrato só e um valor por "
-              "metro quadrado que você conhece antes de começar. Simule no site, escolha o seu acabamento e fale com a gente "
-              "quando estiver pronto.")
+# Texto do Paulo, enviado pelo Leonardo em 13/11/2026 (substitui o rascunho de 12/11). Literal, um parágrafo por item.
+QUEM_SOMOS = (
+    "A Reformuli nasceu com um propósito: transformar o apartamento que a construtora entrega no lugar onde você "
+    "realmente deseja morar.",
+    "Acreditamos que um imóvel só se torna um verdadeiro lar quando ganha personalidade, conforto, funcionalidade e "
+    "identidade. Por isso, vamos muito além de reformas: criamos ambientes que refletem o estilo de vida, os sonhos e "
+    "as necessidades de cada cliente.",
+    "Nossa equipe trabalha com soluções completas, planejamento, projetos, materiais e mão de obra especializada, "
+    "cuidando de cada detalhe para transformar espaços comuns em ambientes extraordinários.",
+    "Do primeiro planejamento à entrega das chaves, nosso compromisso é oferecer qualidade, transparência, inovação e "
+    "excelência em cada etapa.",
+)
 
 
-def palavras(texto):
+def palavras(paragrafos):
     from html import escape
-    return " ".join(f"<span>{escape(p)}</span>" for p in texto.split())
+    if isinstance(paragrafos, str):
+        paragrafos = (paragrafos,)
+    return "".join("<p>" + " ".join(f"<span>{escape(p)}</span>" for p in par.split()) + "</p>" for par in paragrafos)
 
 
 PAGINAS = {
